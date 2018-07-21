@@ -1,0 +1,55 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+        <?= $this->headTitle('JF Mecanica')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+		<!-- Etiquetas para equipos mobile -->
+        <?=$this->headMeta()->appendName('viewport', 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')->appendHttpEquiv('X-UA-Compatible', 'IE=edge')?>
+
+        <!-- styles -->
+        <?=$this->headLink(['rel' => 'shortcut icon','type' => 'image/vnd.microsoft.icon','href' => $this->basePath() . '/img/favicon.ico'])->prependStylesheet($this->basePath('css/style.css'))->appendStylesheet("https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css")?>
+
+        <!-- Scripts -->
+        <?=$this->headScript()->appendFile("https://code.jquery.com/jquery-3.3.1.slim.min.js")->appendFile("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")->appendFile("https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js")?>
+    </head>
+<body>
+	<div id="app" class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">			 
+			<img src="<?= $this->basePath('img/zf-logo-mark.svg') ?>" height="28" alt="JF Mecanica <?= \Application\Module::VERSION ?>" />
+			<a class="navbar-brand" href="<?= $this->url('home') ?>">JF Mecanica</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div id="navbarNavDropdown" class="navbar-collapse collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="<?= $this->url('home') ?>">Home <span	class="sr-only">(current)</span></a></li>
+				</ul>
+				<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link"
+						href="<?= $this->url('clientes') ?>">Clientes</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="<?= $this->url('vehiculos') ?>">Vehiculos</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+            <?= $this->content ?>
+            <hr>
+	</div>
+	<div class="container">
+		<footer>
+			<p>JF Mecanica - Av. Gral Paz y San Martin.</p>
+		</footer>
+	</div>
+        <?= $this->inlineScript() ?>
+        
+    </body>
+</html>
